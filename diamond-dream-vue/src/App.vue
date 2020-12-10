@@ -36,12 +36,10 @@ export default {
     }
   },
   mounted() { // copy from products.html
-    let productsURL = this.productsApiUrl + 'api/products'
-    fetch(productsURL)
-      .then( reponse => response.json())
-      .then( products => {
-          this.products = products  // set Vue data to response from API
-      })
+    
+    this.$diamond_dream_api.getProducts().then( productData => {
+      this.products = productData
+    })
   },
   methods: { // New method
     productOrdered(productId, quantity) {

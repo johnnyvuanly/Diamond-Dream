@@ -2,7 +2,7 @@
     <div>
         <h3>{{ product.productName }}</h3>
 
-        <img v-bind:src="productApiUrl + 'img/' + product.image">
+        <img v-bind:src="product.image">
 
         <p>{{ product.description }}</p>
 

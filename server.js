@@ -1,6 +1,7 @@
 // Code that starts our web server
 
 let express = require('express')
+let path = require('path')
 let products_api = require('./routes/products.js') // Require the products.js file
 
 // Create a web app
@@ -10,9 +11,10 @@ app.use(express.static('public'))
 
 app.use('/api', products_api)
 
-app.use('/', function(req, res, next){
-    return res.sendFile(path.join(__dirname, 'index.html'))
-})
+// app.use('/api/orders', )
+// app.use('/', function(req, res, next){
+//     return res.sendFile(path.join(__dirname, 'index.html'))
+// })
 
 // Error handlers - for not found, and app errors
 app.use(function(req, res, next){
