@@ -56,8 +56,8 @@ export default {
 
       // Has a product with this ID already been ordered?
       // search the orders array for an order with this product ID
-      let exxistingOrderIndex = this.orders.findIndex( order => order.product.id == productId)
-      if (exxistingOrderIndex == -1) {
+      let existingOrderIndex = this.orders.findIndex( order => order.product.id == productId)
+      if (existingOrderIndex == -1) {
         // add to orders array
         this.orders.push(orderItem)
       } else {
