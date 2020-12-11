@@ -7,7 +7,7 @@
         <p>{{ product.description }}</p>
 
         <p v-if="product.available">This product is available!</p>
-        <p v-else>Sorry, this product is not available. Please check back later.</p>
+        <p v-else>*Sorry, this product is not available. Please check back later.</p>
 
         <p>Quantity Available: {{ product.quantityAvailable }}</p>
 

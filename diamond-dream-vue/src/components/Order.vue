@@ -16,7 +16,7 @@
             <td>{{ order.product.id }}</td>
             <td>{{ order.product.productName }} </td>
             <td>{{ order.quantity }}</td>
-            <td><button v-on:click="deleteOrder(order)"></button></td>
+            <td><button v-on:click="deleteOrder(order)">X</button></td>
         </tr>
     </table>
 
@@ -55,6 +55,8 @@ table {
 td, th {
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 table, th, td, tr {
     border: 1px lightgrey solid;
