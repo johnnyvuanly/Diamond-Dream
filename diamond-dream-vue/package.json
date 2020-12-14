@@ -1,7 +1,8 @@
 {
   "name": "diamond-dream-vue",
-  "version": "0.1.0",
-  "private": true,
+  "description": "Diamond Dream Vue app",
+  "author": "Johnny",
+  "main": "server.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"

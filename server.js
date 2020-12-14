@@ -1,17 +1,22 @@
 // Code that starts our web server
 
 let express = require('express')
+let bodyParser = require('body-parser')
 let path = require('path')
+let order_routes = require('./routes/order.js')
 let products_api = require('./routes/products.js') // Require the products.js file
 
 // Create a web app
 let app = express()
 
+app.use(bodyParser.json())
+
 app.use(express.static('public'))
 
 app.use('/api', products_api)
 
-// app.use('/api/orders', )
+app.use('/api', order_routes)
+
 // app.use('/', function(req, res, next){
 //     return res.sendFile(path.join(__dirname, 'index.html'))
 // })

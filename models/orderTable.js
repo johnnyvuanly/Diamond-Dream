@@ -1,6 +1,8 @@
+// Defines DB columns and types
+
 module.exports = (sequelize, DataTypes) => {
 
-    let Diamond = sequelize.define('Diamond', {
+    let Order = sequelize.define('Order', {
         name: {
             type: DataTypes.STRING,
         }, productID: {
@@ -10,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
-    Diamond.sync({force: true}).then( () => {
-        console.log('synced Diamond table')
+    Order.sync({force: true}).then( () => {
+        console.log('synced order table')
     })
 
-    return Diamond
+    return Order
 }

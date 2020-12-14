@@ -1,7 +1,9 @@
+// This will connect to the database, and keep track of models in the app
+
 let {Sequelize, DataTypes } = require('sequelize')
 
 let env = process.env.NODE_ENV || 'development'
-let config = require(_dirname + '/../config.json')[env]
+let config = require(__dirname + '/../config.json')[env]
 
 let db = {}
 
@@ -13,8 +15,8 @@ if (config.use_env_variable) {
     sequelize = new Sequelize(config)
 }
 
-let diamondModel = require('./diamond')(sequelize, DataTypes)
-db[diamondModel.name] = diamondModel
+let orderModel = require('./orderTable')(sequelize, DataTypes)
+db[orderModel.name] = orderModel
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
