@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
 
-    let Order = sequelize.define('Order', {
+    let OrderInfo = sequelize.define('Order', {
         name: {
             type: DataTypes.STRING,
         }, productID: {
@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
-    Order.sync({force: true}).then( () => {
+    OrderInfo.sync({force: true}).then( () => {
         console.log('synced order table')
     })
 
-    return Order
+    return OrderInfo
 }
