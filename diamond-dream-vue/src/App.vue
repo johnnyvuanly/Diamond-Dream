@@ -45,10 +45,10 @@ export default {
     this.$diamond_dream_api.getProducts().then( productData => { // use getProducts() method for API data
       this.products = productData
     }),
-    this.updateOrders()
+    this.updateOrders() // Nessessary?
   },
   methods: { // New method
-    newOrderAdded(order) {
+    newOrderAdded(order) { // Nessessary?
       this.$$order_api.addOrder(order).then( order => {
         this.updateOrders()
       })
@@ -84,7 +84,7 @@ export default {
       // filter orders - keep all orders with a different ID to this product
       this.orders = this.orders.filter( o => o.product.id !=order.product.id)
     },
-    updateOrders() {
+    updateOrders() { // Necessary?
       this.$order_api.getAllOrders().then( orders => {
         this.orders = orders
       })
