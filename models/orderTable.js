@@ -2,13 +2,16 @@
 
 module.exports = (sequelize, DataTypes) => {
 
-    let OrderInfo = sequelize.define('Order', {
+    let OrderInfo = sequelize.define('Order', { // the model's name is 'Order'
         name: {
             type: DataTypes.STRING,
+            allowNull: false
         }, productID: {
             type: DataTypes.NUMBER,
+            allowNull: false
         }, quantity: {
             type: DataTypes.NUMBER,
+            allowNull: false
         }
     })
 

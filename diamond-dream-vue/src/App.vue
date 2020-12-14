@@ -1,6 +1,11 @@
 <template>
+  <html>
   <div id="app">
-
+    <head>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    </head>
+    
     <h1>Diamond Dream</h1>
 
     <order v-bind:orders="orders" v-on:delete-order="deleteOrder"></order>
@@ -16,6 +21,7 @@
     </product>
 
   </div>
+  </html>
 </template>
 
 <script>
@@ -38,9 +44,15 @@ export default {
   mounted() { // copy from products.html
     this.$diamond_dream_api.getProducts().then( productData => { // use getProducts() method for API data
       this.products = productData
-    })
+    }),
+    this.updateOrders()
   },
   methods: { // New method
+    newOrderAdded(order) {
+      this.$$order_api.addOrder(order).then( order => {
+        this.updateOrders()
+      })
+    },
     productOrdered(productId, quantity) {
 
       // look up name and other product info in products array
@@ -64,13 +76,18 @@ export default {
         // and it would update the orders array but the page wouldn't change.
         // so we have to use the $set method to make the change to the array
         // and make the page update.
-        this.$set(this.orders, exxistingOrderIndex, orderItem)
+        this.$set(this.orders, existingOrderIndex, orderItem)
       }
 
     },
     deleteOrder(order) {
       // filter orders - keep all orders with a different ID to this product
       this.orders = this.orders.filter( o => o.product.id !=order.product.id)
+    },
+    updateOrders() {
+      this.$order_api.getAllOrders().then( orders => {
+        this.orders = orders
+      })
     }
   }
 }
@@ -84,5 +101,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background:papayawhip;
+}
+h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 80px;
+  background: salmon;
+  text-align: center;
+  color: aliceblue;
+}
+html {
+  background: papayawhip;
 }
 </style>

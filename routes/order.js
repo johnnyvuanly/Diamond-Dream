@@ -3,7 +3,7 @@
 // look at routes/api.js slide
 let express = require('express')
 let db = require('../models')
-let OrderInfo = db.OrderInfo
+let OrderInfo = db.Order
 
 let router = express.Router()
 

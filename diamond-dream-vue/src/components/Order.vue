@@ -2,23 +2,27 @@
 
 <div>
 
-<h2>Your Orders</h2>
-    <p v-if="orders.length==0">No orders</p>
+    <p v-if="orders.length==0"></p>
 
-    <table v-else>
-        <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Delete?</th>
-        </tr>
-        <tr v-for="order in sortedOrdersByName" v-bind:key="order.product.id">
-            <td>{{ order.product.id }}</td>
-            <td>{{ order.product.productName }} </td>
-            <td>{{ order.quantity }}</td>
-            <td><button v-on:click="deleteOrder(order)">X</button></td>
-        </tr>
-    </table>
+    <div v-else>
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Delete?</th>
+            </tr>
+            <tr v-for="order in sortedOrdersByName" v-bind:key="order.product.id">
+                <td>{{ order.product.id }}</td>
+                <td>{{ order.product.productName }} </td>
+                <td>{{ order.quantity }}</td>
+                <td><button v-on:click="deleteOrder(order)">X</button></td>
+            </tr>
+        </table>
+
+        <button id="orderButton">Submit Order</button>
+    </div>
+
 
 </div>
 
@@ -64,5 +68,9 @@ table, th, td, tr {
 }
 button {
     background: red;
+}
+#orderButton {
+    background: lightgray;
+    margin-top: 20px;
 }
 </style>

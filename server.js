@@ -17,6 +17,7 @@ app.use('/api', products_api)
 
 app.use('/api', order_routes)
 
+// include when deploying
 // app.use('/', function(req, res, next){
 //     return res.sendFile(path.join(__dirname, 'index.html'))
 // })
