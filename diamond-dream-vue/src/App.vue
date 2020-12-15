@@ -49,11 +49,18 @@ export default {
     this.updateOrders() // Nessessary?
   },
   methods: { // New method
-    newOrderAdded() { 
+    newOrderAdded(customerName, customerAddress) { 
       // this.orders is an array of multiple order objects
-      this.$order_api.addOrder(this.orders).then( order => {
-        this.updateOrders()
-      })
+      
+      // structure data - customerName and order info
+
+      // data sent to the server - who is ordering and what products are they ordering
+      let allOrderInfo = {customerName: customerName, productsOrdered: this.orders, customerAddress: customerAddress}
+      console.log(allOrderInfo)
+        this.$order_api.addOrder(allOrderInfo).then( order => {
+          this.updateOrders()
+        })
+        
     },
     productOrdered(productId, quantity) {
 

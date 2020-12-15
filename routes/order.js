@@ -16,8 +16,12 @@ router.get('/orders', function(req, res, next){
 
 // Create a new student with a post to /orders, return 201 status and ok message
 router.post('/orders', function(req, res, next){
+    let arrayOfOrders = req.body // Variable 
+    for (orderObject in arrayOfOrders) {
 
-    console.log(req.body) // What data is your server recieving?
+    }
+
+    console.log(JSON.stringify(req.body)) // What data is your server recieving?
     // if it's an array of objects, you'll need to loop and 
     // save each individual OrderInfo to the database
     OrderInfo.create(req.body).then( (data) => {

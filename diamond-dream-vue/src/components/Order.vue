@@ -5,6 +5,9 @@
     <p v-if="orders.length==0"></p>
 
     <div v-else>
+        <label>Your Name:</label><input v-model="customerName">
+        <label>Your Address:</label><input v-model="customerAddress">
+
         <table>
             <tr>
                 <th>Product ID</th>
@@ -21,6 +24,8 @@
         </table>
 
         <button id="orderButton" v-on:click="submitOrders">Submit Order</button>
+
+        <p>{{ message }}</p>
     </div>
 
 
@@ -31,6 +36,13 @@
 <script>
 export default {
     name: 'Order',
+    data() {
+        return {
+            message: '',
+            customerName: '',
+            customerAddress: ''
+        }
+    },
     props: {
         orders: Array
     },
@@ -49,7 +61,8 @@ export default {
         submitOrders() {
             // Deleted old lines because this.order is a prop (way we pass data from a parent compnent down to its child component)
             // Then that component knows what this.order is 
-            this.$emit('order-added')
+            this.$emit('order-added', this.customerName, this.customerAddress)
+            this.message = 'Your order has been submitted!'
         }
 
     }
