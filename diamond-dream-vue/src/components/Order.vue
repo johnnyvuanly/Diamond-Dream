@@ -6,7 +6,7 @@
 
     <div v-else>
         <label>Your Name:</label><input v-model="customerName">
-        <label>Your Address:</label><input v-model="customerAddress">
+        <br><label>Your Address:</label><input v-model="customerAddress">
 
         <table>
             <tr>
