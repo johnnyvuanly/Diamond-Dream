@@ -51,9 +51,7 @@ export default {
   methods: { // New method
     newOrderAdded(customerName, customerAddress) { 
       // this.orders is an array of multiple order objects
-      
       // structure data - customerName and order info
-
       // data sent to the server - who is ordering and what products are they ordering
       let allOrderInfo = {customerName: customerName, productsOrdered: this.orders, customerAddress: customerAddress}
       console.log(allOrderInfo)

@@ -6,6 +6,7 @@
 
     <div v-else>
         <label>Your Name:</label><input v-model="customerName">
+
         <br><label>Your Address:</label><input v-model="customerAddress">
 
         <table>
@@ -59,8 +60,6 @@ export default {
             }
         },
         submitOrders() {
-            // Deleted old lines because this.order is a prop (way we pass data from a parent compnent down to its child component)
-            // Then that component knows what this.order is 
             this.$emit('order-added', this.customerName, this.customerAddress)
             this.message = 'Your order has been submitted!'
         }
