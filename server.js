@@ -9,6 +9,8 @@ let products_api = require('./routes/products.js') // Require the products.js fi
 // Create a web app
 let app = express()
 
+app.use(express.static(path.join(__dirname, 'diamond-dream-vue', 'dist')))
+
 app.use(bodyParser.json())
 
 app.use(express.static('public'))
@@ -16,11 +18,6 @@ app.use(express.static('public'))
 app.use('/api', products_api)
 
 app.use('/api', order_routes)
-
-// include when deploying
-// app.use('/', function(req, res, next){
-//     return res.sendFile(path.join(__dirname, 'index.html'))
-// })
 
 // Error handlers - for not found, and app errors
 app.use(function(req, res, next){
