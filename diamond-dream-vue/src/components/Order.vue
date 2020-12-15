@@ -47,9 +47,14 @@ export default {
             }
         },
         submitOrders() {
-            let order = { name: this.order.product.productName, productID: this.order.product.id, quantity: this.order.quantity}
+            // Since this.order is a prop and another component is setting it,
+            // then that component knows what this.order is 
 
-            this.$emit('order-added', order)
+            // unless you need to manipulate the structure of the object, you may 
+            // not need this 
+            // let order = { name: this.order.product.productName, productID: this.order.product.id, quantity: this.order.quantity}
+
+            this.$emit('order-added')  
         }
 
     }
