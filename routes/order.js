@@ -16,9 +16,12 @@ router.get('/orders', function(req, res, next){
 
 // Create a new student with a post to /orders, return 201 status and ok message
 router.post('/orders', function(req, res, next){
-    let arrayOfOrders = req.body // Variable 
-    for (orderObject in arrayOfOrders) {
-
+    let arrayOfOrders = req.body 
+    for (orderObjects in arrayOfOrders) {
+        let objectCustomerName = orderObjects.customerName
+        let objectProductId = orderObjects.productsOrdered[0].product.id
+        let objectQuantity = orderObjects.productsOrdered.quantity
+        let objectCustomerAddress = orderObjects.customerAddress
     }
 
     console.log(JSON.stringify(req.body)) // What data is your server recieving?
