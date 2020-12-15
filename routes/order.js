@@ -16,9 +16,13 @@ router.get('/orders', function(req, res, next){
 
 // Create a new student with a post to /orders, return 201 status and ok message
 router.post('/orders', function(req, res, next){
+
+    console.log(req.body)  // what data is your server receiving? 
+    // if it's an array of objects, you'll need to loop and 
+    // save each individual OrderInfo to the database
     OrderInfo.create(req.body).then( (data) => {
         return res.status(201).send('ok')
-    })
+    }).catch(err => next(err))  // error handling or your server will get stuck if there's a problem
 })
 
 module.exports = router 
