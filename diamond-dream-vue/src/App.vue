@@ -49,12 +49,17 @@ export default {
     this.updateOrders() // Nessessary?
   },
   methods: { // New method
-    newOrderAdded() { // Nessessary?  // no arg needed? 
+    newOrderAdded(customerName) { // Nessessary?  // no arg needed? 
     // So this.orders is an array of multiple order objects.
     // your database stores one row per object.  So, somewhere in your app,
     // need to deal with separating the list into individual items
-      this.$order_api.addOrder(this.orders).then( order => {
-        
+
+    // structure data - customerName and order info 
+
+    // data sent to the server - who is ordering and what products are they ordering? 
+    let allOrderInfo = { customerName: customerName, productsOrdered: this.orders}
+    console.log(allOrderInfo)
+      this.$order_api.addOrder(allOrderInfo).then( order => {
         this.updateOrders()
       })
     },

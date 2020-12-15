@@ -5,6 +5,10 @@
     <p v-if="orders.length==0"></p>
 
     <div v-else>
+
+
+        <input v-model="customerName">
+
         <table>
             <tr>
                 <th>Product ID</th>
@@ -34,6 +38,11 @@ export default {
     props: {
         orders: Array
     },
+    data() {
+        return {
+            customerName: ''
+        }
+    },
     computed: {
         sortedOrdersByName() {
             let copyOrders = [...this.orders]
@@ -54,7 +63,8 @@ export default {
             // not need this 
             // let order = { name: this.order.product.productName, productID: this.order.product.id, quantity: this.order.quantity}
 
-            this.$emit('order-added')  
+            // todo validate name, that there is at least one product ordered
+            this.$emit('order-added', this.customerName)  // and maybe also address?
         }
 
     }

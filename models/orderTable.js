@@ -3,7 +3,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     let OrderInfo = sequelize.define('Order', { // the model's name is 'Order'
-        name: {
+        customerName: {  // name of product or customer? 
             type: DataTypes.STRING,
             allowNull: false
         }, productID: {
