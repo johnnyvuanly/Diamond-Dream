@@ -20,7 +20,7 @@
             </tr>
         </table>
 
-        <button id="orderButton">Submit Order</button>
+        <button id="orderButton" v-on:click="submitOrders">Submit Order</button>
     </div>
 
 
@@ -45,7 +45,13 @@ export default {
             if (confirm(`Delete your order for ${order.quantity} ${order.product.productName}, are you sure? `)) {
                 this.$emit('delete-order', order)
             }
+        },
+        submitOrders() {
+            let order = { name: this.order.product.productName, productID: this.order.product.id, quantity: this.order.quantity}
+
+            this.$emit('order-added', order)
         }
+
     }
 }
 </script>
