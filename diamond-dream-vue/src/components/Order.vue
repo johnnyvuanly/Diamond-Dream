@@ -47,9 +47,9 @@ export default {
             }
         },
         submitOrders() {
-            let order = { name: this.order.product.productName, productID: this.order.product.id, quantity: this.order.quantity}
-
-            this.$emit('order-added', order)
+            // Deleted old lines because this.order is a prop (way we pass data from a parent compnent down to its child component)
+            // Then that component knows what this.order is 
+            this.$emit('order-added')
         }
 
     }

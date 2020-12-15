@@ -8,7 +8,8 @@
     
     <h1>Diamond Dream</h1>
 
-    <order v-bind:orders="orders" v-on:delete-order="deleteOrder"></order>
+    <order v-bind:orders="orders" v-on:order-added="newOrderAdded"
+    v-on:delete-order="deleteOrder"></order>
 
     <h2>Product Catalog</h2>
     
@@ -48,8 +49,9 @@ export default {
     this.updateOrders() // Nessessary?
   },
   methods: { // New method
-    newOrderAdded(order) { // Nessessary?
-      this.$$order_api.addOrder(order).then( order => {
+    newOrderAdded() { 
+      // this.orders is an array of multiple order objects
+      this.$order_api.addOrder(this.orders).then( order => {
         this.updateOrders()
       })
     },
